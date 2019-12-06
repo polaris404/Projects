@@ -17,7 +17,7 @@ float power_func(int, float ,float);
 
 int main()
 {
-    int choice1,choice2;
+    char choice1,choice2;
     float num1,num2,result;
     while(1)
     {
@@ -31,9 +31,9 @@ int main()
         cout<<"Enter choice : ";
         cin>>choice1;
         system("cls");
-        if(choice1==6)
+        if(choice1=='6')
             break;
-        if(choice1==1)
+        if(choice1=='1')
         {
             double res;
             cout<<"Arithmetic Functions :\n\n";
@@ -45,7 +45,7 @@ int main()
             cout<<"6. Factorial\n";
             cout<<"7. Summation\n";
             cin>>choice2;
-            if(choice2==6||choice2==7)
+            if(choice2=='6'||choice2=='7')
             {
                 num2=0;
                 cout<<"Enter a number : ";
@@ -54,7 +54,7 @@ int main()
                 //printf("\n\nResult : %lf\n",res);
                 cout<<"\n\nResult : "<<res<<endl;
             }
-            else if(choice2>0&&choice2<=5)
+            else if(choice2>'0'&&choice2<='5')
             {
                 cout<<"Enter two numbers : ";
                 cin>>num1>>num2;
@@ -66,7 +66,7 @@ int main()
 
 
         }
-        else if(choice1==2)
+        else if(choice1=='2')
         {
             cout<<"Trigonometric Functions :\n\n";
             cout<<"In radians:--\n";
@@ -84,7 +84,7 @@ int main()
             cout<<"11. arc cosine\n";
             cout<<"12. arc tangent\n";
             cin>>choice2;
-            if(choice2>0&&choice2<=12)
+            if(choice2>'0'&&choice2<='12')
             {
                 cout<<"Enter the number : ";
                 cin>>num1;
@@ -95,7 +95,7 @@ int main()
                 cout<<"\nWrong Choice!\n";
 
         }
-        else if(choice1==3)
+        else if(choice1=='3')
         {
             cout<<"Trigonometric Functions :\n\n";
             cout<<"In radians:\n";
@@ -114,7 +114,7 @@ int main()
             cout<<"12. arc hyperbolic tangent\n";
             cin>>choice2;
 
-            if(choice2>0&&choice2<=12)
+            if(choice2>'0'&&choice2<='12')
             {
                 cout<<"Enter the number : ";
                 cin>>num1;
@@ -125,7 +125,7 @@ int main()
                 cout<<"\nWrong Choice!\n";
 
         }
-        else if(choice1==4)
+        else if(choice1=='4')
         {
             cout<<"Exponential and Logarithmic Functions :\n\n";
             cout<<"1. Exponential (e^x)\n";
@@ -133,14 +133,14 @@ int main()
             cout<<"3. Log(x) with base '10'\n";
             cout<<"4. Log(x) with base 'y'\n";
             cin>>choice2;
-            if(choice2==4)
+            if(choice2=='4')
             {
                 cout<<"Enter the numbers(x,y) : ";
                 cin>>num1>>num2;
                 result=exp_log_func(choice2, num1,num2);
                 printf("\n\nResult : %0.3f\n",result);
             }
-            else if(choice2>0&&choice2<=3)
+            else if(choice2>'0'&&choice2<='3')
             {
                 num2=0;
                 cout<<"Enter the number : ";
@@ -152,7 +152,7 @@ int main()
                 cout<<"\nWrong Choice!\n";
 
         }
-        else if(choice1==5)
+        else if(choice1=='5')
         {
             cout<<"Power Functions :\n\n";
             cout<<"1. Power(x^y)\n";
@@ -160,14 +160,14 @@ int main()
             cout<<"3. Cube root\n";
             cin>>choice2;
 
-            if(choice2==1)
+            if(choice2=='1')
             {
                 cout<<"Enter the numbers (x^y) : ";
                 cin>>num1>>num2;
                 result=power_func(choice2, num1,num2);
                 printf("\n\nResult : %0.3f\n",result);
             }
-            else if(choice2==2||choice2==3)
+            else if(choice2=='2'||choice2=='3')
             {
                 num2 = 0;
                 cout<<"Enter the number : ";
