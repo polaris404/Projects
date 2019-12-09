@@ -10,14 +10,14 @@ using namespace std;
 double pi = atan(1)*4;
 
 double arith_func(char, float ,float);
-float trig_func(char, float );
-float hyperbolic_func(char, float);
+float trig_func(char, char, float );
+float hyperbolic_func(char, char, float);
 float exp_log_func(char, float, float );
 float power_func(char, float ,float);
 
 int main()
 {
-    char choice1,choice2;
+    char choice1,choice2,choice3;
     float num1,num2,result;
     while(1)
     {
@@ -86,19 +86,31 @@ int main()
             cout<<"4. arc sine\n";
             cout<<"5. arc cosine\n";
             cout<<"6. arc tangent\n";
-            cout<<"\nIn degrees:--\n";
-            cout<<"7.  sine\n";
-            cout<<"8.  cosine\n";
-            cout<<"9.  tangent\n";
-            cout<<"10. arc sine\n";
-            cout<<"11. arc cosine\n";
-            cout<<"12. arc tangent\n";
+            cout<<"Type 'n' for next page : "<<endl;
             cin>>choice2;
-            if(choice2>'0'&&choice2<='12')
+            if(choice2=='n')
             {
+                system("cls");
+                cout<<"\nIn degrees:--\n";
+                cout<<"1. sine\n";
+                cout<<"2. cosine\n";
+                cout<<"3. tangent\n";
+                cout<<"4. arc sine\n";
+                cout<<"5. arc cosine\n";
+                cout<<"6. arc tangent\n";
+                cin>>choice3;
+                choice2='0';
                 cout<<"Enter the number : ";
                 cin>>num1;
-                result=trig_func(choice2, num1);
+                result=trig_func(choice2,choice3,num1);
+                printf("\n\nResult : %0.3f\n",result);
+            }
+            else if(choice2>'0'&&choice2<='6')
+            {
+                choice3='0';
+                cout<<"Enter the number : ";
+                cin>>num1;
+                result=trig_func(choice2,choice3,num1);
                 printf("\n\nResult : %0.3f\n",result);
             }
             else
@@ -115,20 +127,32 @@ int main()
             cout<<"4. arc hyperbolic sine\n";
             cout<<"5. arc hyperbolic cosine\n";
             cout<<"6. arc hyperbolic tangent\n";
-            cout<<"\nIn Degrees:\n";
-            cout<<"7. hyperbolic sine\n";
-            cout<<"8. hyperbolic cosine\n";
-            cout<<"9. hyperbolic tangent\n";
-            cout<<"10. arc hyperbolic sine\n";
-            cout<<"11. arc hyperbolic cosine\n";
-            cout<<"12. arc hyperbolic tangent\n";
+            cout<<"Type 'n' for next page : "<<endl;
             cin>>choice2;
-
-            if(choice2>'0'&&choice2<='12')
+            if(choice2=='n')
             {
+                system("cls");
+                cout<<"\nIn Degrees:\n";
+                cout<<"1. hyperbolic sine\n";
+                cout<<"2. hyperbolic cosine\n";
+                cout<<"3. hyperbolic tangent\n";
+                cout<<"4. arc hyperbolic sine\n";
+                cout<<"5. arc hyperbolic cosine\n";
+                cout<<"6. arc hyperbolic tangent\n";
+                cin>>choice3;
+                choice2='0';
                 cout<<"Enter the number : ";
                 cin>>num1;
-                result=hyperbolic_func(choice2, num1);
+                result=hyperbolic_func(choice2,choice3,num1);
+                printf("\n\nResult : %0.3f\n",result);
+            }
+
+            if(choice2>'0'&&choice2<='6')
+            {
+                choice3='0';
+                cout<<"Enter the number : ";
+                cin>>num1;
+                result=hyperbolic_func(choice2,choice3,num1);
                 printf("\n\nResult : %0.3f\n",result);
             }
             else
@@ -228,7 +252,7 @@ double arith_func(char n, float val1,float val2)
     return ans;
 }
 
-float trig_func(char n, float val)
+float trig_func(char n, char n1, float val)
 {
     float ans;
     float deg = (val/180)*pi;
@@ -244,21 +268,21 @@ float trig_func(char n, float val)
         ans = acos(val);
     else if(n=='6')
         ans = atan(val);
-    else if(n=='7')
+    if(n1=='1')
         ans = sin(deg);
-    else if(n=='8')
+    else if(n1=='2')
         ans = cos(deg);
-    else if(n=='9')
+    else if(n1=='3')
         ans = tan(deg);
-    else if(n=='10')
+    else if(n1=='4')
         ans = asin(deg);
-    else if(n=='11')
+    else if(n1=='5')
         ans = acos(deg);
-    else if(n=='12')
+    else if(n1=='6')
         ans = atan(deg);
     return ans;
 }
-float hyperbolic_func(char n, float val)
+float hyperbolic_func(char n, char n1, float val)
 {
     float ans;
     float deg = (val/180)*pi;
@@ -274,17 +298,17 @@ float hyperbolic_func(char n, float val)
         ans = acosh(val);
     else if(n=='6')
         ans = atanh(val);
-    else if(n=='7')
+    if(n1=='1')
         ans = sinh(deg);
-    else if(n=='8')
+    else if(n1=='2')
         ans = cosh(deg);
-    else if(n=='9')
+    else if(n1=='3')
         ans = tanh(deg);
-    else if(n=='10')
+    else if(n1=='4')
         ans = asinh(deg);
-    else if(n=='11')
+    else if(n1=='5')
         ans = acosh(deg);
-    else if(n=='12')
+    else if(n1=='6')
         ans = atanh(deg);
     return ans;
 }
