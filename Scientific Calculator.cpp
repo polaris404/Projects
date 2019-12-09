@@ -9,11 +9,11 @@ using namespace std;
 
 double pi = atan(1)*4;
 
-double arith_func(int, float ,float);
-float trig_func(int, float );
-float hyperbolic_func(int, float);
-float exp_log_func(int, float, float );
-float power_func(int, float ,float);
+double arith_func(char, float ,float);
+float trig_func(char, float );
+float hyperbolic_func(char, float);
+float exp_log_func(char, float, float );
+float power_func(char, float ,float);
 
 int main()
 {
@@ -51,10 +51,20 @@ int main()
                 cout<<"Enter a number : ";
                 cin>>num1;
                 res=arith_func(choice2, num1, num2);
-                //printf("\n\nResult : %lf\n",res);
                 cout<<"\n\nResult : "<<res<<endl;
             }
-            else if(choice2>'0'&&choice2<='5')
+            else if(choice2=='1')
+            {
+                double n=0,sum=0;
+                cout<<"Enter numbers(Put a '0' at the end) : ";
+                do{
+                    cin>>n;
+                    sum+=n;
+                }while(n!=0);
+
+                printf("\n\nResult : %0.3lf\n",sum);
+            }
+            else if(choice2>'1'&&choice2<='5')
             {
                 cout<<"Enter two numbers : ";
                 cin>>num1>>num2;
@@ -97,7 +107,7 @@ int main()
         }
         else if(choice1=='3')
         {
-            cout<<"Trigonometric Functions :\n\n";
+            cout<<"Hyperbolic Functions :\n\n";
             cout<<"In radians:\n";
             cout<<"1. hyperbolic sine\n";
             cout<<"2. hyperbolic cosine\n";
@@ -185,21 +195,19 @@ int main()
     }
     return 0;
 }
-double arith_func(int n, float val1,float val2)
+double arith_func(char n, float val1,float val2)
 {
     double ans;
     double result=1;
-    if(n==1)
-        ans = val1+val2;
-    else if(n==2)
+    if(n=='2')
         ans = val1-val2;
-    else if(n==3)
+    else if(n=='3')
         ans = val1*val2;
-    else if(n==4)
+    else if(n=='4')
         ans = val1/val2;
-    else if(n==5)
+    else if(n=='5')
         ans = (int)val1%(int)val2;
-    else if(n==6)
+    else if(n=='6')
     {
         for(int i=val1;i>0;i--)
         {
@@ -208,7 +216,7 @@ double arith_func(int n, float val1,float val2)
         }
         ans = result;
     }
-    else if(n==7)
+    else if(n=='7')
     {
         result=0;
         for(int i=val1;i>0;i--)
@@ -219,87 +227,88 @@ double arith_func(int n, float val1,float val2)
     }
     return ans;
 }
-float trig_func(int n, float val)
+
+float trig_func(char n, float val)
 {
     float ans;
     float deg = (val/180)*pi;
-    if(n==1)
+    if(n=='1')
         ans = sin(val);
-    else if(n==2)
+    else if(n=='2')
         ans = cos(val);
-    else if(n==3)
+    else if(n=='3')
         ans = tan(val);
-    else if(n==4)
+    else if(n=='4')
         ans = asin(val);
-    else if(n==5)
+    else if(n=='5')
         ans = acos(val);
-    else if(n==6)
+    else if(n=='6')
         ans = atan(val);
-    else if(n==7)
+    else if(n=='7')
         ans = sin(deg);
-    else if(n==8)
+    else if(n=='8')
         ans = cos(deg);
-    else if(n==9)
+    else if(n=='9')
         ans = tan(deg);
-    else if(n==10)
+    else if(n=='10')
         ans = asin(deg);
-    else if(n==11)
+    else if(n=='11')
         ans = acos(deg);
-    else if(n==12)
+    else if(n=='12')
         ans = atan(deg);
     return ans;
 }
-float hyperbolic_func(int n, float val)
+float hyperbolic_func(char n, float val)
 {
     float ans;
     float deg = (val/180)*pi;
-    if(n==1)
+    if(n=='1')
         ans = sinh(val);
-    else if(n==2)
+    else if(n=='2')
         ans = cosh(val);
-    else if(n==3)
+    else if(n=='3')
         ans = tanh(val);
-    else if(n==4)
+    else if(n=='4')
         ans = asinh(val);
-    else if(n==5)
+    else if(n=='5')
         ans = acosh(val);
-    else if(n==6)
+    else if(n=='6')
         ans = atanh(val);
-    else if(n==7)
+    else if(n=='7')
         ans = sinh(deg);
-    else if(n==8)
+    else if(n=='8')
         ans = cosh(deg);
-    else if(n==9)
+    else if(n=='9')
         ans = tanh(deg);
-    else if(n==10)
+    else if(n=='10')
         ans = asinh(deg);
-    else if(n==11)
+    else if(n=='11')
         ans = acosh(deg);
-    else if(n==12)
+    else if(n=='12')
         ans = atanh(deg);
     return ans;
 }
-float exp_log_func(int n, float val1, float val2)
+float exp_log_func(char n, float val1, float val2)
 {
     float ans;
-    if(n==1)
+    if(n=='1')
         ans = exp(val1);
-    else if(n==2)
+    else if(n=='2')
         ans = log(val1);
-    else if(n==3)
+    else if(n=='3')
         ans = log10(val1);
-    else if(n==4)
+    else if(n=='4')
         ans = log10(val1)/log10(val2);
     return ans;
 }
-float power_func(int n, float val1, float val2)
+float power_func(char n, float val1, float val2)
 {
     float ans;
-    if(n==1)
+    if(n=='1')
         ans = pow(val1,val2);
-    if(n==2)
+    else if(n=='2')
         ans = sqrt(val1);
-    else if(n==3)
+    else if(n=='3')
         ans = cbrt(val1);
     return ans;
 }
