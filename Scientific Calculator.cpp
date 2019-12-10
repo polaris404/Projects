@@ -275,11 +275,11 @@ float trig_func(char n, char n1, float val)
     else if(n1=='3')
         ans = tan(deg);
     else if(n1=='4')
-        ans = asin(deg);
+        ans = (asin(val)*180)/pi;
     else if(n1=='5')
-        ans = acos(deg);
+        ans = (acos(val)*180)/pi;
     else if(n1=='6')
-        ans = atan(deg);
+        ans = (atan(val)*180)/pi;
     return ans;
 }
 float hyperbolic_func(char n, char n1, float val)
@@ -305,11 +305,11 @@ float hyperbolic_func(char n, char n1, float val)
     else if(n1=='3')
         ans = tanh(deg);
     else if(n1=='4')
-        ans = asinh(deg);
+        ans = (asinh(val)*180)/pi;
     else if(n1=='5')
-        ans = acosh(deg);
+        ans = (acosh(val)*180)/pi;
     else if(n1=='6')
-        ans = atanh(deg);
+        ans = (atanh(val)*180)/pi;
     return ans;
 }
 float exp_log_func(char n, float val1, float val2)
